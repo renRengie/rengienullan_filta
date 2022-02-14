@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="radio"]:checked + label:after{
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full border-4 border-darkgrey;
+}

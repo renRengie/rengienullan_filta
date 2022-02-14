@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <link rel="stylesheet" href="./dist/app.css">
+</head>
+<body>
+    <header class="mt-3 bg-header px-5">
+        <div class="max-w-[1440px] mx-auto flex justify-end relative">
+            <div class="cart-button group">
+                <span class="relative z-10 p-2 text-base-light group-hover:text-base-dark group-hover:bg-white inline-block cursor-pointer border border-header group-hover:border-black group-hover:border-b-white group">My Cart <span id="cart_count"></span></span>
+                
+                <div id="cart-items-holder" class="cart-items-holder hidden group w-80 h-96 overflow-y-scroll bg-white group-hover:block absolute top-[calc(100%-1px)] right-0 border border-black">
+                    <!-- <div class="cart-item p-6 flex">
+                        <div class="img-cont max-w-[80px] mr-4">
+                            <img src="./assets/classic-tee.jpg" alt="Classic Tee">
+                        </div>
+                        <div class="cart-details flex-1">
+                            <h1 class="title mb-2">Classic Tee</h1>
+                            <div class="qty-price mb-2">
+                                <span class="qty">1</span>x
+                                <span class="price font-bold">$75.00</span>
+                            </div>
+                            <div class="size">Size: <span>S</span></div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+
+    <section class="mt-10 mb-20">
+        <div class="mx-auto max-w-[1440px] px-5">
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="img-container flex-1">
+                    <img src="./assets/classic-tee.jpg" alt="Classic Tee" loading="lazy">
+                </div>
+    
+                <div class="product-details mt-10 text-lg text-base-light flex-1">
+                    <h1 class="title font-medium mb-4 text-3xl md:text-4xl text-base-dark">Classic Tee</h1>
+                    <div class="price font-extrabold mb-4 text-base-dark">$75.00</div>
+                    <p class="description ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo velit cum rem repellendus sequi deserunt quod harum! Quia quibusdam rerum reprehenderit libero temporibus adipisci nulla dolorum. Harum sapiente magni culpa.</p>
+
+
+                    <form action="/submit" class="mt-10" id="add-to-cart-form">
+                        <div class="size-details mb-5">
+                            <h2 class="uppercase font-bold mb-2 inline-block mr-3">Size<span class="text-star">*</span></h2> <span class="font-bold text-base-dark" id="set-size"></span>
+                            <div class="sizes flex">
+                                <div class="size_boxes mr-2 relative">
+                                    <input type="radio" name="size" value="S" id="size_small" class="absolute opacity-0 bottom-0 left-1/2 transform -translate-x-1/2" >
+                                    <label for="size_small" class="size_labels min-w-[50px] leading-none px-4 py-4 inline-block border border-lightgrey cursor-pointer"
+                                    onclick="getElementById('set-size').textContent = this.textContent">S</label>
+                                </div>
+                                <div class="size_boxes mr-2 relative">
+                                    <input type="radio" name="size" value="M" id="size_medium" class="absolute opacity-0 bottom-0 left-1/2 transform -translate-x-1/2" >
+                                    <label for="size_medium" class="size_labels min-w-[50px] leading-none px-4 py-4 inline-block border border-lightgrey cursor-pointer"
+                                    onclick="getElementById('set-size').textContent = this.textContent">M</label>
+                                </div>
+                                <div class="size_boxes relative">
+                                    <input type="radio" name="size" value="L" id="size_large" class="absolute opacity-0 bottom-0 left-1/2 transform -translate-x-1/2" >
+                                    <label for="size_large" class="size_labels min-w-[50px] leading-none px-4 py-4 inline-block border border-lightgrey cursor-pointer"
+                                    onclick="getElementById('set-size').textContent = this.textContent">L</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="text-base-dark border-4 border-darkgrey font-bold px-6 py-2 uppercase inline-block cursor-pointer text-xl
+                        hover:bg-base-dark hover:text-white transition-colors duration-200">Add to cart</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="/dist/app.js"></script>
+</body>
+</html>

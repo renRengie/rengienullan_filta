@@ -7,7 +7,55 @@
   \***********************/
 /***/ (() => {
 
+var cartItemHolder = document.getElementById('cart-items-holder');
+var atcForm = document.getElementById('add-to-cart-form');
+var cartItems = [];
+atcForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var selectedSize = document.querySelector("input[type='radio'][name='size']:checked");
 
+  if (!selectedSize) {
+    alert('Please Select A Size First');
+    return true;
+  }
+
+  var newItem = {
+    'size': selectedSize.value,
+    'qty': 1
+  };
+  var existingData = cartItems.find(function (item) {
+    return item.size == selectedSize.value;
+  });
+
+  if (existingData) {
+    cartItems.map(function (item) {
+      if (existingData.size == item.size) {
+        return item.qty++;
+      }
+
+      return item;
+    });
+  } else {
+    cartItems.push(newItem);
+  }
+
+  buildCartItem(cartItems);
+});
+
+function buildCartItem(itemData) {
+  var itemRender = itemData.map(function (item) {
+    return "\n        <div class=\"cart-item p-6 flex\">\n            <div class=\"img-cont max-w-[80px] mr-4\">\n                <img src=\"./assets/classic-tee.jpg\" alt=\"Classic Tee\">\n            </div>\n            <div class=\"cart-details flex-1\">\n                <h1 class=\"title mb-2\">Classic Tee</h1>\n                <div class=\"qty-price mb-2\">\n                    <span class=\"qty\">".concat(item.qty, "</span>x\n                    <span class=\"price font-bold\">$75.00</span>\n                </div>\n                <div class=\"size\">Size: <span>").concat(item.size, "</span></div>\n            </div>\n        </div>\n        ");
+  });
+  var qtySum = itemData.map(function (item) {
+    return item.qty;
+  }).reduce(function (a, b) {
+    return a + b;
+  });
+  cart_count.innerHTML = "";
+  cart_count.insertAdjacentText('afterbegin', "(".concat(qtySum, ")"));
+  cartItemHolder.innerHTML = "";
+  cartItemHolder.insertAdjacentHTML('afterbegin', itemRender);
+}
 
 /***/ }),
 
